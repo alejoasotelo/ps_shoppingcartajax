@@ -100,8 +100,6 @@ class Ps_Shoppingcart extends Module implements WidgetInterface
     /**
      * Provides an already presented object from the context if set.
      * If not, runs the presenter.
-     *
-     * @return array presented cart
      */
     private function getPresentedCart()
     {
