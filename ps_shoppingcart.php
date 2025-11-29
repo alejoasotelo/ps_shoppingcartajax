@@ -60,6 +60,12 @@ class Ps_Shoppingcart extends Module implements WidgetInterface
         }
 
         if (Configuration::get('PS_BLOCK_CART_AJAX')) {
+            // Registrar Alpine.js desde CDN para la carga diferida del carrito
+            $this->context->controller->registerJavascript(
+                'alpinejs',
+                'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js',
+                ['server' => 'remote', 'position' => 'bottom', 'priority' => 140, 'attributes' => 'defer']
+            );
             $this->context->controller->registerJavascript('modules-shoppingcart', 'modules/' . $this->name . '/ps_shoppingcart.js', ['position' => 'bottom', 'priority' => 150]);
         }
     }
