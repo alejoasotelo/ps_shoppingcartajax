@@ -77,10 +77,11 @@ function shoppingCart(refreshUrl, cartUrl) {
       var self = this;
       self.loading = true;
       
+      // Usar GET para la petición inicial ya que no enviamos datos
       fetch(this.refreshUrl, {
-        method: 'POST',
+        method: 'GET',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
         }
       })
       .then(function(response) {

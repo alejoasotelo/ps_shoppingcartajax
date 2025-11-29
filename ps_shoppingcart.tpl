@@ -17,6 +17,10 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {* Componente del carrito con Alpine.js para carga diferida vía AJAX *}
+{* Estilo para ocultar elementos con x-cloak mientras Alpine.js no está inicializado *}
+<style>
+  [x-cloak] {literal}{ display: none !important; }{/literal}
+</style>
 <div id="blockcart-wrapper"
      x-data="shoppingCart('{$refresh_url}', '{$cart_url}')"
      x-init="init()">
@@ -61,7 +65,7 @@
                               <span x-text="field.text"></span>
                             </template>
                             <template x-if="field.type == 'image'">
-                              <img :src="field.image.small.url" alt="">
+                              <img :src="field.image.small.url" :alt="field.label">
                             </template>
                           </li>
                         </template>
